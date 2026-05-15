@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { ManifestoSection } from "@/components/manifesto-section";
 import { NavBar } from "@/components/nav-bar";
-import { NewsletterSection } from "@/components/newsletter-section";
+import { SignalIntakeSection } from "@/components/signal-intake-section";
 import { TransmissionFeed } from "@/components/transmission-feed";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
       <CanonSection />
       <TransmissionFeed />
       <ArchiveSection />
-      <NewsletterSection />
+      <SignalIntakeSection />
       <Footer />
     </main>
   );

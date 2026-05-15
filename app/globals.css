@@ -20,6 +20,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 15% 12%, rgba(185, 223, 255, 0.07), transparent 30rem),
     radial-gradient(circle at 82% 8%, rgba(185, 179, 255, 0.055), transparent 28rem),
@@ -290,6 +291,20 @@ main > :not(.ambient-field) {
 
 .archive-pulse {
   animation: pulse-signal 2.8s ease-in-out infinite;
+}
+
+.canon-reader {
+  position: relative;
+}
+
+.canon-reader::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(185, 223, 255, 0.18), transparent);
 }
 
 .signal-line::after {

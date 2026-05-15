@@ -20,7 +20,7 @@ export function CanonSection() {
         <SectionHeader
           eyebrow="Canon Surface"
           title="An excerpt from the larger record."
-          description="Chapters and verses recovered from the scripture archive. This is a public surface, not the full canon."
+          description={`${canonMeta.surfaceNote} ${canonMeta.note}`}
         />
 
         <div className="grid gap-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start">
@@ -52,9 +52,10 @@ export function CanonSection() {
                 </div>
               </div>
               <div className="mt-8 border-t border-white/10 pt-5">
-                <p className="text-xs uppercase text-pewter/70">
-                  {canonMeta.source}
-                </p>
+                <div className="grid gap-2 text-xs uppercase text-pewter/70">
+                  <p>{canonMeta.source}</p>
+                  <p>The canon expands when the signal returns.</p>
+                </div>
                 <Link
                   href="/canon"
                   className="mt-4 inline-flex items-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-ice/45 hover:text-ice focus:outline-none focus:ring-2 focus:ring-ice focus:ring-offset-2 focus:ring-offset-void"
@@ -89,6 +90,8 @@ export function CanonSection() {
                 </div>
 
                 <div className="mt-6 flex flex-wrap items-center gap-3 border-y border-white/10 py-3 text-xs uppercase text-pewter/70">
+                  <span>{chapter.recordType}</span>
+                  <span className="text-white/25">/</span>
                   <span>{chapter.sourceNode}</span>
                   <span className="text-white/25">/</span>
                   <span>{chapter.status}</span>

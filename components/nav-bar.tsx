@@ -21,7 +21,7 @@ export function NavBar() {
           Archive active
         </div>
 
-        <div className="no-scrollbar flex items-center gap-1 overflow-x-auto rounded-full border border-white/8 bg-white/[0.03] p-1">
+        <div className="no-scrollbar flex min-w-0 items-center gap-1 overflow-x-auto rounded-full border border-white/8 bg-white/[0.03] p-1">
           {navItems.map((item) => (
             <a
               key={item.href}

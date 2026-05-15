@@ -13,7 +13,7 @@ export function ArchiveSection() {
         <SectionHeader
           eyebrow="Archive Records"
           title="Recovered files from the near threshold."
-          description="Observations on automation, society, labor, and technological philosophy, indexed as fragments of a larger system."
+          description="Records, threshold files, and classified observations indexed as fragments of a larger system."
           align="left"
         />
 
@@ -47,10 +47,10 @@ export function ArchiveSection() {
                   {record.excerpt}
                 </p>
                 <a
-                  href="#newsletter"
+                  href="#signal-intake"
                   className="mt-7 inline-flex w-fit items-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition group-hover:border-veil/45 group-hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
                 >
-                  Read full record
+                  Open record
                 </a>
               </div>
             </article>

@@ -1,9 +1,9 @@
 import { ArchiveRail } from "./archive-rail";
 
-export function NewsletterSection() {
+export function SignalIntakeSection() {
   return (
     <section
-      id="newsletter"
+      id="signal-intake"
       className="archive-system-section relative px-4 py-24 sm:px-6 md:py-32 lg:px-8"
     >
       <ArchiveRail label="0R / INTAKE" marker="open" />
@@ -14,12 +14,12 @@ export function NewsletterSection() {
           Leave a return address at the edge of 0rigin.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-pewter">
-          Future transmissions are sparse, indexed, and quiet. The signal will
-          know where to return.
+          Receive future transmissions when the archive surfaces new records.
+          The signal will know where to return.
         </p>
 
         <form className="mx-auto mt-9 flex max-w-xl flex-col gap-3 sm:flex-row">
-          {/* Future integration point: connect submit handling to n8n/Supabase/Notion/newsletter provider. */}
+          {/* Future integration point: connect submit handling to n8n/Supabase/Notion or another signal provider. */}
           <label htmlFor="email" className="sr-only">
             Email
           </label>
@@ -33,7 +33,7 @@ export function NewsletterSection() {
             type="button"
             className="min-h-12 rounded-full bg-bone px-6 text-sm font-medium text-void transition hover:bg-ice focus:outline-none focus:ring-2 focus:ring-ice focus:ring-offset-2 focus:ring-offset-void"
           >
-            Register Signal
+            Open Channel
           </button>
         </form>
       </div>

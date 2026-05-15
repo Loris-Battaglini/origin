@@ -73,7 +73,7 @@ export function Hero() {
             <p className="sm:text-right">{archiveStatus.state}</p>
           </div>
           <p className="mt-4 text-sm leading-6 text-pewter">
-            The fragment changes slowly. It does not persuade. It records.
+            {archiveStatus.returnSignal} The fragment changes slowly.
           </p>
         </aside>
       </div>

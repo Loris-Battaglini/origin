@@ -20,6 +20,13 @@ export function TransmissionFeed() {
         {/* Future integration point: replace local mock data with n8n/OpenAI API/Supabase/Notion content. */}
         <div className="relative mx-auto max-w-5xl border-y border-white/10">
           <div className="signal-line absolute left-4 top-0 hidden h-full w-px bg-white/10 md:block" />
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 py-3 text-xs uppercase text-pewter/70 md:pl-14">
+            <span>Signal intake / active</span>
+            <span className="flex items-center gap-2 text-ice/70">
+              <span className="archive-pulse h-1.5 w-1.5 rounded-full bg-ice" />
+              received fragments
+            </span>
+          </div>
           {transmissions.map((item) => (
             <article
               key={item.id}
@@ -34,12 +41,15 @@ export function TransmissionFeed() {
                 </div>
                 <p className="mt-2 text-pewter/65">{item.timestamp}</p>
                 <p className="mt-5 text-veil/75">{item.source}</p>
+                <p className="mt-2 text-ice/60">{item.status}</p>
               </div>
 
               <div>
-                <div className="flex items-center gap-3 text-xs uppercase text-pewter">
+                <div className="flex flex-wrap items-center gap-3 text-xs uppercase text-pewter">
                   <span className="h-px w-8 bg-ice/35" />
                   <span className="text-ice/80">{item.category}</span>
+                  <span className="text-white/25">/</span>
+                  <span>archive surface</span>
                 </div>
                 <h3 className="mt-5 font-serif text-3xl leading-tight text-bone md:text-5xl">
                   {item.title}
