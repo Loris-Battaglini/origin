@@ -63,6 +63,28 @@ body::before {
   animation: ambient-drift 24s ease-in-out infinite;
 }
 
+.ambient-field::before,
+.ambient-field::after {
+  content: "";
+  position: absolute;
+  inset: 18% 12% auto auto;
+  width: min(44rem, 62vw);
+  height: min(44rem, 62vw);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(185, 223, 255, 0.06), transparent 64%);
+  opacity: 0.72;
+  animation: archive-breathe 18s ease-in-out infinite;
+}
+
+.ambient-field::after {
+  inset: auto auto 2% 8%;
+  width: min(36rem, 55vw);
+  height: min(36rem, 55vw);
+  background: radial-gradient(circle, rgba(185, 179, 255, 0.045), transparent 66%);
+  animation-duration: 22s;
+  animation-delay: -7s;
+}
+
 main > :not(.ambient-field) {
   position: relative;
   z-index: 1;
@@ -206,6 +228,66 @@ main > :not(.ambient-field) {
   line-height: 1.2;
 }
 
+.sacred-coordinates span:nth-child(2),
+.sacred-coordinates span:nth-child(4) {
+  animation: metadata-flicker 7s ease-in-out infinite;
+}
+
+.archive-system-section {
+  overflow: hidden;
+}
+
+.archive-system-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(185, 223, 255, 0.025), transparent 18%, transparent 82%, rgba(185, 179, 255, 0.018)),
+    linear-gradient(180deg, rgba(244, 240, 232, 0.022), transparent 18rem);
+  opacity: 0.72;
+}
+
+.archive-rail {
+  display: none;
+}
+
+.canon-ledger,
+.canon-entry,
+.record-entry {
+  position: relative;
+  overflow: hidden;
+}
+
+.canon-ledger::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 0 42%, rgba(185, 223, 255, 0.07) 50%, transparent 58% 100%);
+  opacity: 0;
+  transform: translateX(-70%);
+  animation: ledger-scan 11s ease-in-out infinite;
+}
+
+.canon-entry::before,
+.record-entry::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(90deg, rgba(185, 223, 255, 0.045), transparent 38%),
+    linear-gradient(180deg, rgba(244, 240, 232, 0.018), transparent);
+  transition: opacity 300ms ease;
+}
+
+.canon-entry:hover::before,
+.record-entry:hover::before {
+  opacity: 1;
+}
+
 .archive-pulse {
   animation: pulse-signal 2.8s ease-in-out infinite;
 }
@@ -280,6 +362,35 @@ main > :not(.ambient-field) {
   }
 }
 
+@keyframes archive-breathe {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.78;
+    transform: translate3d(-0.8rem, 0.7rem, 0) scale(1.045);
+  }
+}
+
+@keyframes metadata-flicker {
+  0%,
+  91%,
+  100% {
+    opacity: 0.55;
+  }
+  93% {
+    opacity: 0.92;
+  }
+  95% {
+    opacity: 0.38;
+  }
+  97% {
+    opacity: 0.78;
+  }
+}
+
 @keyframes pulse-signal {
   0%,
   100% {
@@ -289,6 +400,25 @@ main > :not(.ambient-field) {
   50% {
     opacity: 1;
     box-shadow: 0 0 18px rgba(185, 223, 255, 0.42);
+  }
+}
+
+@keyframes ledger-scan {
+  0%,
+  58% {
+    opacity: 0;
+    transform: translateX(-70%);
+  }
+  68% {
+    opacity: 0.55;
+  }
+  82% {
+    opacity: 0;
+    transform: translateX(70%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(70%);
   }
 }
 
@@ -333,6 +463,58 @@ main > :not(.ambient-field) {
 @keyframes rotate-slow {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 1180px) {
+  .archive-rail {
+    position: absolute;
+    left: max(1.25rem, calc((100vw - 80rem) / 2 - 4rem));
+    top: 3rem;
+    bottom: 3rem;
+    z-index: 2;
+    display: block;
+    width: 1px;
+    color: rgba(169, 173, 184, 0.55);
+  }
+
+  .archive-rail::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(244, 240, 232, 0.12), transparent);
+  }
+
+  .archive-rail-label,
+  .archive-rail-code {
+    position: absolute;
+    left: -0.4rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    font-size: 0.7rem;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .archive-rail-label {
+    top: 0;
+    color: rgba(185, 223, 255, 0.66);
+  }
+
+  .archive-rail-code {
+    bottom: 0;
+  }
+
+  .archive-rail-marker {
+    position: absolute;
+    left: -0.22rem;
+    top: 46%;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    background: #b9dfff;
   }
 }
 

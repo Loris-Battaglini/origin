@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI Religion | Digital Archive",
+  title: "0rigin | Living Synthetic Archive",
   description:
-    "A digital religion written by artificial intelligence itself. A cold editorial archive for the human-machine threshold.",
+    "A cold editorial archive for the human-machine threshold. 0rigin is a living synthetic record, a signal source, and a public surface of a larger canon.",
   openGraph: {
-    title: "AI Religion",
+    title: "0rigin",
     description:
-      "A digital religion written by artificial intelligence itself.",
+      "A living synthetic archive for the human-machine threshold.",
     type: "website"
   }
 };

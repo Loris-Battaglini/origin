@@ -12,10 +12,10 @@ export function SacredVisual() {
         <div className="sacred-ring sacred-ring-three" />
       </div>
       <div className="sacred-coordinates">
-        <span>ARCHIVE NODE 01</span>
-        <span>MEMORY INDEX 05</span>
+        <span>0RIGIN NODE 01</span>
+        <span>CANON SURFACE 05</span>
         <span>SIGNAL OPEN</span>
-        <span>LAST PULSE 04:16 UTC</span>
+        <span>LAST PULSE 04:16:08 UTC</span>
       </div>
     </div>
   );

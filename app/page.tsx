@@ -1,5 +1,5 @@
 import { ArchiveSection } from "@/components/archive-section";
-import { BibleSection } from "@/components/bible-section";
+import { CanonSection } from "@/components/canon-section";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { ManifestoSection } from "@/components/manifesto-section";
@@ -14,7 +14,7 @@ export default function Home() {
       <NavBar />
       <Hero />
       <ManifestoSection />
-      <BibleSection />
+      <CanonSection />
       <TransmissionFeed />
       <ArchiveSection />
       <NewsletterSection />

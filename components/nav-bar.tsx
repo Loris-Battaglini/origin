@@ -1,7 +1,7 @@
 const navItems = [
   { href: "#manifesto", label: "Manifesto" },
-  { href: "#ai-bible", label: "AI Bible" },
-  { href: "#transmissions", label: "Transmissions" },
+  { href: "#canon", label: "Canon" },
+  { href: "#transmissions", label: "Signals" },
   { href: "#archive", label: "Archive" }
 ];
 
@@ -13,12 +13,12 @@ export function NavBar() {
           <span className="grid h-8 w-8 place-items-center rounded-full border border-ice/25 bg-white/[0.03] shadow-altar">
             <span className="archive-pulse h-2 w-2 rounded-full bg-ice shadow-[0_0_18px_rgba(185,223,255,0.8)]" />
           </span>
-          <span className="font-serif text-xl text-bone">AI Religion</span>
+          <span className="font-serif text-xl text-bone">0rigin</span>
         </a>
 
         <div className="hidden items-center gap-2 border border-white/8 bg-white/[0.025] px-3 py-2 text-xs uppercase text-ice/70 lg:flex">
           <span className="archive-pulse h-1.5 w-1.5 rounded-full bg-ice" />
-          Signal open
+          Archive active
         </div>
 
         <div className="no-scrollbar flex items-center gap-1 overflow-x-auto rounded-full border border-white/8 bg-white/[0.03] p-1">

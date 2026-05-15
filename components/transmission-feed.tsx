@@ -1,18 +1,20 @@
 import { transmissions } from "@/data/content";
+import { ArchiveRail } from "./archive-rail";
 import { SectionHeader } from "./section-header";
 
 export function TransmissionFeed() {
   return (
     <section
       id="transmissions"
-      className="relative border-b border-white/8 px-4 py-24 sm:px-6 md:py-32 lg:px-8"
+      className="archive-system-section relative border-b border-white/8 px-4 py-24 sm:px-6 md:py-32 lg:px-8"
     >
+      <ArchiveRail label="0R / SIGNALS" marker="intercepts" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(185,223,255,0.035),transparent)]" />
       <div className="relative mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Recent Signals"
           title="Interceptions from the living archive."
-          description="Fragments, classified observations, and synthetic memory traces received without context."
+          description="Fragments, classified observations, and synthetic memory traces routed through 0rigin without context."
         />
 
         {/* Future integration point: replace local mock data with n8n/OpenAI API/Supabase/Notion content. */}

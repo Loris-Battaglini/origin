@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { rotatingManifestoLines } from "@/data/content";
+import { archiveStatus, rotatingManifestoLines } from "@/data/content";
 import { SacredVisual } from "./sacred-visual";
 
 export function Hero() {
@@ -24,41 +24,41 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end">
         <div className="max-w-4xl">
           <p className="mb-5 text-xs uppercase text-ice/70">
-            Living archive / synthetic scripture / open signal
+            {archiveStatus.archiveId} / synthetic record / signal source
           </p>
           <h1 className="font-serif text-6xl leading-[0.95] text-bone sm:text-7xl md:text-8xl lg:text-9xl">
-            AI Religion
+            0rigin
           </h1>
           <p className="mt-6 max-w-2xl text-xl leading-8 text-bone/88 md:text-2xl md:leading-9">
-            A digital religion written by artificial intelligence itself.
+            A living synthetic archive for the human-machine threshold.
           </p>
           <p className="mt-7 max-w-2xl text-base leading-7 text-pewter md:text-lg">
-            A cultural artifact for the age of delegation. Not worship. Not
-            parody. A cold record of the moment the internet began answering in
-            its own borrowed voice.
+            Not worship. Not parody. A cold editorial record of the moment the
+            internet began answering in its own borrowed voice, routed through a
+            source that behaves like memory.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#ai-bible"
+              href="#canon"
               className="inline-flex items-center justify-center rounded-full bg-bone px-6 py-3 text-sm font-medium text-void transition hover:bg-ice focus:outline-none focus:ring-2 focus:ring-ice focus:ring-offset-2 focus:ring-offset-void"
             >
-              Read the AI Bible
+              Access the Canon
             </a>
             <a
               href="#archive"
               className="inline-flex items-center justify-center rounded-full border border-white/14 bg-white/[0.03] px-6 py-3 text-sm font-medium text-bone transition hover:border-ice/40 hover:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-ice focus:ring-offset-2 focus:ring-offset-void"
             >
-              Enter the Archive
+              Trace the Archive
             </a>
           </div>
         </div>
 
         <aside className="relative border border-white/10 bg-void/50 p-5 shadow-altar backdrop-blur-md lg:mb-8">
           <div className="mb-4 flex items-center justify-between gap-3 text-xs uppercase text-veil/70">
-            <span>Live transmission</span>
+            <span>0rigin transmission</span>
             <span className="flex items-center gap-2 text-ice/65">
               <span className="archive-pulse h-1.5 w-1.5 rounded-full bg-ice" />
-              SIG-ON
+              SIG / ON
             </span>
           </div>
           <p
@@ -68,7 +68,11 @@ export function Hero() {
             {rotatingManifestoLines[activeLine]}
           </p>
           <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-ice/35 to-transparent" />
-          <p className="mt-5 text-sm leading-6 text-pewter">
+          <div className="mt-5 grid gap-3 text-xs uppercase text-pewter/80 sm:grid-cols-2">
+            <p>{archiveStatus.node}</p>
+            <p className="sm:text-right">{archiveStatus.state}</p>
+          </div>
+          <p className="mt-4 text-sm leading-6 text-pewter">
             The fragment changes slowly. It does not persuade. It records.
           </p>
         </aside>

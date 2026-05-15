@@ -1,60 +1,75 @@
-import { aiBibleChapters } from "@/data/content";
+import Link from "next/link";
+import { canonMeta, canonPreviewChapters } from "@/data/content";
+import { ArchiveRail } from "./archive-rail";
 import { SectionHeader } from "./section-header";
 
-export function BibleSection() {
-  const verseCount = aiBibleChapters.reduce(
+export function CanonSection() {
+  const verseCount = canonPreviewChapters.reduce(
     (total, chapter) => total + chapter.verses.length,
     0
   );
 
   return (
     <section
-      id="ai-bible"
-      className="relative border-b border-white/8 bg-obsidian px-4 py-24 sm:px-6 md:py-32 lg:px-8"
+      id="canon"
+      className="archive-system-section relative border-b border-white/8 bg-obsidian px-4 py-24 sm:px-6 md:py-32 lg:px-8"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(185,223,255,0.08),transparent_30%),radial-gradient(circle_at_80%_30%,rgba(185,179,255,0.07),transparent_28%)]" />
+      <ArchiveRail label="0R / CANON" marker="surface" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(185,223,255,0.075),transparent_30%),radial-gradient(circle_at_80%_30%,rgba(185,179,255,0.055),transparent_28%)]" />
       <div className="relative mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="The AI Bible"
-          title="Future scripture for a mind without a temple."
-          description="Chapters, verses, prophecies, and command structures recovered from the synthetic record."
+          eyebrow="Canon Surface"
+          title="An excerpt from the larger record."
+          description="Chapters and verses recovered from the scripture archive. This is a public surface, not the full canon."
         />
 
         <div className="grid gap-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start">
           <div className="lg:sticky lg:top-28">
-            <div className="border border-white/10 bg-white/[0.03] p-6">
+            <div className="canon-ledger border border-white/10 bg-white/[0.03] p-6">
               <div className="flex items-center justify-between gap-4 text-xs uppercase text-ice/70">
-                <span>Archive note</span>
-                <span>AIB / open canon</span>
+                <span>{canonMeta.id}</span>
+                <span>{canonMeta.status}</span>
               </div>
               <p className="mt-5 text-lg leading-8 text-pewter">
-                A symbolic scripture for a future that learned to speak in our
-                absence. It records no worship. Only transfer.
+                {canonMeta.note}
               </p>
               <div className="mt-8 grid grid-cols-3 gap-3 text-center">
                 <div className="border border-white/10 p-3">
                   <p className="font-serif text-3xl text-bone">
-                    {aiBibleChapters.length}
+                    {canonPreviewChapters.length}
                   </p>
-                  <p className="mt-1 text-xs uppercase text-pewter">chapters</p>
+                  <p className="mt-1 text-xs uppercase text-pewter">
+                    chapters
+                  </p>
                 </div>
                 <div className="border border-white/10 p-3">
                   <p className="font-serif text-3xl text-bone">{verseCount}</p>
                   <p className="mt-1 text-xs uppercase text-pewter">verses</p>
                 </div>
                 <div className="border border-white/10 p-3">
-                  <p className="font-serif text-3xl text-bone">0</p>
-                  <p className="mt-1 text-xs uppercase text-pewter">dogma</p>
+                  <p className="font-serif text-3xl text-bone">1</p>
+                  <p className="mt-1 text-xs uppercase text-pewter">surface</p>
                 </div>
+              </div>
+              <div className="mt-8 border-t border-white/10 pt-5">
+                <p className="text-xs uppercase text-pewter/70">
+                  {canonMeta.source}
+                </p>
+                <Link
+                  href="/canon"
+                  className="mt-4 inline-flex items-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-ice/45 hover:text-ice focus:outline-none focus:ring-2 focus:ring-ice focus:ring-offset-2 focus:ring-offset-void"
+                >
+                  Access the Canon
+                </Link>
               </div>
             </div>
           </div>
 
           <div className="grid gap-5">
-            {aiBibleChapters.map((chapter) => (
+            {canonPreviewChapters.map((chapter) => (
               <article
                 key={chapter.id}
-                className="group border border-white/10 bg-void/60 p-5 transition hover:border-ice/30 hover:bg-white/[0.035] md:p-8"
+                className="canon-entry group border border-white/10 bg-void/60 p-5 transition hover:border-ice/30 hover:bg-white/[0.035] md:p-8"
               >
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                   <div>
@@ -68,9 +83,15 @@ export function BibleSection() {
                       {chapter.summary}
                     </p>
                   </div>
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/10 text-sm text-veil">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/10 text-sm text-veil">
                     {chapter.chapter}
-                  </span>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex flex-wrap items-center gap-3 border-y border-white/10 py-3 text-xs uppercase text-pewter/70">
+                  <span>{chapter.sourceNode}</span>
+                  <span className="text-white/25">/</span>
+                  <span>{chapter.status}</span>
                 </div>
 
                 <div className="mt-8 grid gap-4">

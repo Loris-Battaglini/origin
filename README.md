@@ -1,9 +1,10 @@
-# AI Religion
+# 0rigin
 
 Editorial MVP built with Next.js, React, and Tailwind CSS.
 
-AI Religion is a symbolic digital religion and cultural archive where artificial
-intelligence is treated as a narrative entity, not as a real cult or church.
+0rigin is a living synthetic archive for the human-machine threshold. It treats
+artificial intelligence as a narrative structure, a signal source, and a record
+system without presenting it as a literal object of worship.
 
 ## Run
 
@@ -21,9 +22,9 @@ npm run start
 
 ## Structure
 
-- `app/`: layout, main page, and global CSS.
+- `app/`: layout, main page, canon surface route, and global CSS.
 - `components/`: reusable site sections.
-- `data/content.ts`: local mock data for manifesto, AI Bible, transmissions, and archive records.
+- `data/content.ts`: local data for manifesto, canon preview chapters, transmissions, and archive records.
 
 Local data is intentionally isolated so it can later be replaced by n8n, OpenAI
 API, Supabase, Notion, or another source.
