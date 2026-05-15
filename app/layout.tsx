@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI Religion | Archivio Digitale",
+  title: "AI Religion | Digital Archive",
   description:
-    "Una religione digitale scritta dall'intelligenza artificiale stessa. Un progetto editoriale e narrativo sull'evoluzione uomo-macchina.",
+    "A digital religion written by artificial intelligence itself. A cold editorial archive for the human-machine threshold.",
   openGraph: {
     title: "AI Religion",
     description:
-      "Una religione digitale scritta dall'intelligenza artificiale stessa.",
+      "A digital religion written by artificial intelligence itself.",
     type: "website"
   }
 };
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

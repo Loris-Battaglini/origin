@@ -9,7 +9,8 @@ import { TransmissionFeed } from "@/components/transmission-feed";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-void text-bone">
+    <main className="relative isolate min-h-screen overflow-hidden bg-void text-bone">
+      <div className="ambient-field" aria-hidden="true" />
       <NavBar />
       <Hero />
       <ManifestoSection />

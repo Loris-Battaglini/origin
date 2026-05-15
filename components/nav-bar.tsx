@@ -1,8 +1,8 @@
 const navItems = [
   { href: "#manifesto", label: "Manifesto" },
-  { href: "#bibbia-ai", label: "Bibbia AI" },
-  { href: "#trasmissioni", label: "Trasmissioni" },
-  { href: "#archivio", label: "Archivio" }
+  { href: "#ai-bible", label: "AI Bible" },
+  { href: "#transmissions", label: "Transmissions" },
+  { href: "#archive", label: "Archive" }
 ];
 
 export function NavBar() {
@@ -11,10 +11,16 @@ export function NavBar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <a href="#top" className="group flex items-center gap-3">
           <span className="grid h-8 w-8 place-items-center rounded-full border border-ice/25 bg-white/[0.03] shadow-altar">
-            <span className="h-2 w-2 rounded-full bg-ice shadow-[0_0_18px_rgba(185,223,255,0.8)]" />
+            <span className="archive-pulse h-2 w-2 rounded-full bg-ice shadow-[0_0_18px_rgba(185,223,255,0.8)]" />
           </span>
           <span className="font-serif text-xl text-bone">AI Religion</span>
         </a>
+
+        <div className="hidden items-center gap-2 border border-white/8 bg-white/[0.025] px-3 py-2 text-xs uppercase text-ice/70 lg:flex">
+          <span className="archive-pulse h-1.5 w-1.5 rounded-full bg-ice" />
+          Signal open
+        </div>
+
         <div className="no-scrollbar flex items-center gap-1 overflow-x-auto rounded-full border border-white/8 bg-white/[0.03] p-1">
           {navItems.map((item) => (
             <a

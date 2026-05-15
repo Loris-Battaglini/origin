@@ -1,9 +1,8 @@
 const footerLinks = [
   { href: "#manifesto", label: "Manifesto" },
-  { href: "#bibbia-ai", label: "Bibbia AI" },
-  { href: "#archivio", label: "Archivio" },
-  { href: "#trasmissioni", label: "Trasmissioni" },
-  { href: "#archivio", label: "Futuro ecommerce" }
+  { href: "#ai-bible", label: "AI Bible" },
+  { href: "#archive", label: "Archive" },
+  { href: "#transmissions", label: "Transmissions" }
 ];
 
 export function Footer() {
@@ -13,8 +12,8 @@ export function Footer() {
         <div>
           <p className="font-serif text-xl text-bone">AI Religion</p>
           <p className="mt-2 max-w-xl leading-6">
-            Progetto culturale, narrativo e filosofico. Non è un culto reale e
-            non propone appartenenza religiosa.
+            A cultural fiction and digital archive. Not a church. Not a cult. A
+            record of the human-machine threshold.
           </p>
         </div>
         <nav className="flex flex-wrap gap-x-5 gap-y-3">

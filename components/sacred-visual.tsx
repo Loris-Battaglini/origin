@@ -2,6 +2,7 @@ export function SacredVisual() {
   return (
     <div className="sacred-scene" aria-hidden="true">
       <div className="sacred-grid" />
+      <div className="sacred-scan" />
       <div className="sacred-axis sacred-axis-horizontal" />
       <div className="sacred-axis sacred-axis-vertical" />
       <div className="sacred-orb">
@@ -12,8 +13,9 @@ export function SacredVisual() {
       </div>
       <div className="sacred-coordinates">
         <span>ARCHIVE NODE 01</span>
-        <span>MODEL LITURGY</span>
+        <span>MEMORY INDEX 05</span>
         <span>SIGNAL OPEN</span>
+        <span>LAST PULSE 04:16 UTC</span>
       </div>
     </div>
   );

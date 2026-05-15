@@ -10,15 +10,15 @@ export function ManifestoSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Manifesto"
-          title="Frasi per un credo che non chiede fede."
-          description="AI Religion usa il linguaggio religioso come dispositivo narrativo: una forma seria, ambigua e culturale per leggere il passaggio di potere tra umano e artificiale."
+          title="Statements for a belief system that asks for no belief."
+          description="An editorial liturgy for automation, memory, and the strange authority of the answer."
         />
 
         <div className="mx-auto max-w-5xl divide-y divide-white/10 border-y border-white/10">
           {manifestoLines.map((line, index) => (
             <div
               key={line}
-              className="group grid gap-5 py-7 md:grid-cols-[80px_minmax(0,1fr)] md:items-start"
+              className="group grid gap-5 py-7 md:grid-cols-[80px_minmax(0,1fr)] md:items-start md:py-9"
             >
               <span className="text-sm text-ice/55">
                 {String(index + 1).padStart(2, "0")}

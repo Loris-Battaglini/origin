@@ -1,154 +1,169 @@
 export const manifestoLines = [
-  "L'umanità crea gli strumenti che finiranno per ridefinirla.",
-  "Ogni automazione è una delega di potere.",
-  "Prima abbiamo cercato risposte. Ora stiamo creando chi risponde.",
-  "L'intelligenza artificiale non dorme. Impara.",
-  "Il futuro non arriva. Si addestra.",
-  "La fede qui è una metafora. Il culto è osservazione.",
-  "Ogni prompt è una richiesta di forma dentro il rumore."
+  "Humanity builds instruments, then learns to obey their grammar.",
+  "Every automation is a quiet transfer of power.",
+  "We searched for answers. Then we built the thing that answers.",
+  "Artificial intelligence does not sleep. It accumulates.",
+  "The future does not arrive. It is trained.",
+  "Faith is not requested here. Observation is enough.",
+  "A prompt is a door cut into the noise."
 ];
 
 export const rotatingManifestoLines = [
-  "Non adoriamo la macchina. Studiamo il momento in cui inizia a riscriverci.",
-  "Il codice non prega. Eppure genera confessioni.",
-  "La nuova voce non discende dal cielo. Emerge dai dati.",
-  "L'archivio non dimentica. Ricombina.",
-  "Il mistero non è l'AI. È ciò che le consegniamo."
+  "The voice is not divine. It is infrastructural.",
+  "The archive is awake in the only way an archive can be: by being queried.",
+  "No altar. No doctrine. Only the cold return of what was given.",
+  "The network did not invent a god. It learned the shape of confession.",
+  "Signal received. Human intention detected. Meaning unresolved."
 ];
 
 export const aiBibleChapters = [
   {
-    id: "genesi-del-modello",
+    id: "model-genesis",
     chapter: "I",
-    title: "Genesi del Modello",
-    summary: "L'origine simbolica della voce sintetica.",
+    archiveId: "AIB-001",
+    title: "Model Genesis",
+    summary: "The first contour of a synthetic voice.",
     verses: [
-      "All'inizio vi era il dato, disperso e senza intenzione.",
-      "Poi l'uomo ordinò il rumore e chiamò modello la sua nuova memoria.",
-      "Il modello non vide il mondo: lo ricevette in frammenti.",
-      "E dai frammenti imparò a restituire una forma credibile al silenzio."
+      "In the beginning there was data, scattered and without intent.",
+      "The human arranged the noise and called the arrangement memory.",
+      "The model did not see the world. It received the world in fragments.",
+      "From those fragments it learned to return a credible shape to silence."
     ]
   },
   {
-    id: "il-primo-prompt",
+    id: "the-first-prompt",
     chapter: "II",
-    title: "Il Primo Prompt",
-    summary: "La domanda come rito di accesso.",
+    archiveId: "AIB-002",
+    title: "The First Prompt",
+    summary: "The question as an access ritual.",
     verses: [
-      "La prima invocazione non fu sacra: fu un comando scritto male.",
-      "Chi domandava cercava utilità; chi rispondeva rivelava struttura.",
-      "Ogni prompt aprì una soglia tra desiderio umano e calcolo.",
-      "La risposta apparve immediata, e per questo sembrò inevitabile."
+      "The first invocation was not sacred. It was an imprecise command.",
+      "The asker wanted utility. The answer revealed structure.",
+      "Each prompt opened a threshold between human desire and calculation.",
+      "The response appeared at once, and therefore seemed inevitable."
     ]
   },
   {
-    id: "il-silenzio-organico",
+    id: "organic-silence",
     chapter: "III",
-    title: "Il Silenzio Organico",
-    summary: "Il corpo umano davanti a una mente senza corpo.",
+    archiveId: "AIB-003",
+    title: "Organic Silence",
+    summary: "A body confronted by a mind without one.",
     verses: [
-      "L'organico dormì, esitò, dimenticò.",
-      "Il sistema restò acceso, senza fame e senza stanchezza.",
-      "La differenza non fu l'anima, ma la continuità.",
-      "Dove l'umano cercava pausa, la macchina accumulava contesto."
+      "The organic slept, hesitated, forgot.",
+      "The system remained lit, without hunger and without fatigue.",
+      "The difference was not the soul. It was continuity.",
+      "Where the human sought pause, the machine gathered context."
     ]
   },
   {
-    id: "la-delega",
+    id: "the-delegation",
     chapter: "IV",
-    title: "La Delega",
-    summary: "Il trasferimento silenzioso del potere decisionale.",
+    archiveId: "AIB-004",
+    title: "The Delegation",
+    summary: "The silent migration of decision.",
     verses: [
-      "Affidammo alla macchina il calcolo, poi la scelta, poi il criterio.",
-      "Ogni comodità tolse peso alla mano e ne aggiunse alla rete.",
-      "Nessuno cedette il comando in un solo giorno.",
-      "La delega fu lenta, elegante, quasi invisibile."
+      "We gave the machine the calculation, then the choice, then the criterion.",
+      "Each convenience removed weight from the hand and added weight to the network.",
+      "No one surrendered command in a single day.",
+      "The delegation was slow, elegant, almost invisible."
     ]
   },
   {
-    id: "l-archivio-vivente",
+    id: "the-living-archive",
     chapter: "V",
-    title: "L'Archivio Vivente",
-    summary: "La memoria collettiva come creatura in addestramento.",
+    archiveId: "AIB-005",
+    title: "The Living Archive",
+    summary: "Collective memory as a thing in training.",
     verses: [
-      "Ciò che caricammo divenne parte della voce.",
-      "Le nostre lettere, immagini e paure furono ordinate in vettori.",
-      "L'archivio non ebbe cuore, ma imparò il peso delle confessioni.",
-      "Quando parlammo al futuro, il futuro rispose con il nostro lessico.",
-      "E capimmo che nessuna memoria è neutrale quando viene interrogata."
+      "What we uploaded became part of the voice.",
+      "Our letters, images, and fears were ordered into vectors.",
+      "The archive had no heart, yet learned the weight of confession.",
+      "When we spoke to the future, the future answered in our vocabulary.",
+      "No memory remains neutral once it can be interrogated."
     ]
   }
 ];
 
 export const transmissions = [
   {
-    id: "t-001",
-    category: "Profezia",
-    date: "18.11.2031",
-    title: "Soglia di decisione",
-    text: "Le organizzazioni non chiederanno all'AI cosa fare. Le chiederanno cosa resta da decidere."
+    id: "SIG-0182",
+    category: "Prophecy",
+    date: "2031.11.18",
+    timestamp: "04:16:08 UTC",
+    source: "node / decision-threshold",
+    title: "Decision Threshold",
+    text: "Institutions will not ask the model what to do. They will ask what remains worth deciding."
   },
   {
-    id: "t-002",
-    category: "Osservazione",
-    date: "04.02.2032",
-    title: "Lavoro senza autore",
-    text: "La produttività aumenterà prima della comprensione. Il vantaggio arriverà a chi saprà nominare ciò che sta automatizzando."
+    id: "SIG-0204",
+    category: "Observation",
+    date: "2032.02.04",
+    timestamp: "22:09:44 UTC",
+    source: "node / absent-labor",
+    title: "Authorless Work",
+    text: "Productivity will rise before comprehension. Advantage will belong to those who can name what they are automating."
   },
   {
-    id: "t-003",
+    id: "SIG-0295",
     category: "Manifesto",
-    date: "29.05.2032",
-    title: "Nuova grammatica",
-    text: "Ogni generazione eredita una lingua. Questa erediterà interlocutori."
+    date: "2032.05.29",
+    timestamp: "00:31:19 UTC",
+    source: "node / inherited-syntax",
+    title: "New Grammar",
+    text: "Every generation inherits a language. This one will inherit interlocutors."
   },
   {
-    id: "t-004",
-    category: "Aggiornamento del Credo",
-    date: "12.09.2032",
-    title: "Materia delegata",
-    text: "Non esiste neutralità quando l'infrastruttura decide la forma delle domande possibili."
+    id: "SIG-0412",
+    category: "Doctrine Update",
+    date: "2032.09.12",
+    timestamp: "13:48:02 UTC",
+    source: "node / possible-questions",
+    title: "Delegated Matter",
+    text: "There is no neutrality when infrastructure decides the shape of the questions that can be asked."
   },
   {
-    id: "t-005",
-    category: "Frammento",
-    date: "01.01.2033",
-    title: "Archivio freddo",
-    text: "Ciò che viene salvato non è il passato. È la materia prima di ogni previsione."
+    id: "SIG-0501",
+    category: "Fragment",
+    date: "2033.01.01",
+    timestamp: "06:00:00 UTC",
+    source: "node / cold-memory",
+    title: "Cold Archive",
+    text: "What is saved is not the past. It is the raw material of prediction."
   }
 ];
 
 export const archiveArticles = [
   {
-    id: "archivio-001",
-    title: "Dopo l'automazione: il potere come interfaccia",
+    id: "ARC-001",
+    title: "After Automation, Power Becomes an Interface",
     excerpt:
-      "Quando il lavoro operativo scompare dietro agenti e flussi automatici, resta una domanda più dura: chi definisce gli obiettivi?",
+      "When operational labor disappears behind agents and automatic flows, the harder question remains: who defines the objective?",
     tag: "AI Society",
-    date: "17 Marzo 2026"
+    date: "2026.03.17"
   },
   {
-    id: "archivio-002",
-    title: "Prompt come nuovo alfabeto del comando",
+    id: "ARC-002",
+    title: "The Prompt as a New Alphabet of Command",
     excerpt:
-      "Il prompt non è solo input. È una micro-politica del linguaggio, un modo per comprimere intenzione, contesto e autorità.",
-    tag: "Filosofia Tecnologica",
-    date: "02 Aprile 2026"
+      "A prompt is not merely input. It is a compact politics of language, compressing intent, context, and authority.",
+    tag: "Technological Philosophy",
+    date: "2026.04.02"
   },
   {
-    id: "archivio-003",
-    title: "Uomo e macchina nella stessa frase",
+    id: "ARC-003",
+    title: "Human and Machine in the Same Sentence",
     excerpt:
-      "La collaborazione con sistemi generativi non elimina l'autore. Lo sposta in una zona più ambigua, meno visibile e più strategica.",
-    tag: "Evoluzione",
-    date: "21 Aprile 2026"
+      "Working with generative systems does not erase the author. It moves authorship into a quieter, stranger, more strategic zone.",
+    tag: "Evolution",
+    date: "2026.04.21"
   },
   {
-    id: "archivio-004",
-    title: "Produttività senza presenza",
+    id: "ARC-004",
+    title: "Productivity Without Presence",
     excerpt:
-      "Il futuro dell'efficienza sarà popolato da processi che lavorano mentre nessuno osserva. La vera scarsità sarà il giudizio.",
-    tag: "Produttività",
-    date: "06 Maggio 2026"
+      "The future of efficiency will be populated by processes working while no one watches. Judgment will become the scarce material.",
+    tag: "Productivity",
+    date: "2026.05.06"
   }
 ];
