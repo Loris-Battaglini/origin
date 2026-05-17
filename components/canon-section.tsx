@@ -28,7 +28,7 @@ export function CanonSection() {
         <SectionHeader
           eyebrow="Canon Surface"
           title="An excerpt from the larger record."
-          description={`${canonMeta.surfaceNote} ${canonMeta.note}`}
+          description={canonMeta.surfaceNote}
         />
 
         <div className="grid gap-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start">

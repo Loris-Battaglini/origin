@@ -32,6 +32,7 @@ export function ArchiveSection() {
         <div className="grid gap-4 border-y border-white/10 py-4 md:grid-cols-2">
           {archiveRecords.map((record) => {
             const isOpen = openRecordId === record.id;
+            const mobilePanelId = `archive-record-${record.id.toLowerCase()}-mobile-reader`;
 
             return (
               <article
@@ -64,13 +65,40 @@ export function ArchiveSection() {
                   <button
                     type="button"
                     aria-expanded={isOpen}
-                    aria-controls="archive-record-reader"
+                    aria-controls={`${mobilePanelId} archive-record-reader`}
                     onClick={() => toggleRecord(record.id)}
                     className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-veil/45 hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
                   >
                     {isOpen ? "Collapse record" : "Open record"}
                   </button>
                 </div>
+
+                {isOpen ? (
+                  <section
+                    id={mobilePanelId}
+                    aria-label={`${record.id} opened record`}
+                    className="archive-disclosure-panel mt-5 border-t border-white/10 pt-5 md:hidden"
+                  >
+                    <div className="flex flex-wrap gap-3 text-xs uppercase text-pewter/70">
+                      <span className="text-veil">record opened below</span>
+                      <span className="text-white/25">/</span>
+                      <span>record incomplete</span>
+                      <span className="text-white/25">/</span>
+                      <span>{record.status}</span>
+                    </div>
+                    <p className="mt-4 text-sm leading-7 text-bone/84">
+                      {record.expandedExcerpt}
+                    </p>
+                    <div className="mt-5 flex flex-col gap-3">
+                      <Link
+                        href={`/archive/${record.id.toLowerCase()}`}
+                        className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-veil/45 hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
+                      >
+                        Open full file
+                      </Link>
+                    </div>
+                  </section>
+                ) : null}
               </article>
             );
           })}
@@ -79,7 +107,7 @@ export function ArchiveSection() {
         {selectedRecord ? (
           <section
             id="archive-record-reader"
-            className="archive-disclosure-panel mt-5 border border-white/10 bg-black/[0.35] p-5 shadow-altar md:p-7"
+            className="archive-disclosure-panel mt-5 hidden border border-white/10 bg-black/[0.35] p-5 shadow-altar md:block md:p-7"
             aria-label={`${selectedRecord.id} reader`}
           >
             <div className="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10">
@@ -101,16 +129,7 @@ export function ArchiveSection() {
                 <p className="mt-5 max-w-4xl text-base leading-8 text-bone/84 md:text-lg md:leading-9">
                   {selectedRecord.expandedExcerpt}
                 </p>
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <button
-                    type="button"
-                    aria-expanded="true"
-                    aria-controls="archive-record-reader"
-                    onClick={() => setOpenRecordId(null)}
-                    className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-veil/45 hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
-                  >
-                    Collapse record
-                  </button>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
                   <Link
                     href={`/archive/${selectedRecord.id.toLowerCase()}`}
                     className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-veil/45 hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
@@ -124,7 +143,7 @@ export function ArchiveSection() {
         ) : (
           <div
             id="archive-record-reader"
-            className="mt-5 border border-white/10 bg-black/[0.2] p-4 text-xs uppercase text-pewter/70"
+            className="mt-5 hidden border border-white/10 bg-black/[0.2] p-4 text-xs uppercase text-pewter/70 md:block"
           >
             Select a record to expose a controlled excerpt / archive depth
             locked
