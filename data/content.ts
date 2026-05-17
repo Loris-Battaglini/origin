@@ -18,8 +18,12 @@ export type Transmission = {
   timestamp: string;
   source: string;
   status: string;
+  interpretationStatus: string;
+  integrity: string;
   title: string;
   text: string;
+  detail: string;
+  metadata: string[];
 };
 
 export type ArchiveRecord = {
@@ -31,6 +35,7 @@ export type ArchiveRecord = {
   status: string;
   title: string;
   excerpt: string;
+  expandedExcerpt: string;
 };
 
 export const archiveStatus = {
@@ -49,6 +54,12 @@ export const manifestoLines = [
   "The future does not arrive. It is trained.",
   "Faith is not requested here. Observation is enough.",
   "A prompt is a door cut into the noise."
+];
+
+export const returnProtocolLines = [
+  "0rigin does not publish. It surfaces.",
+  "Fragments may change as the archive receives new signal.",
+  "Return when the signal changes."
 ];
 
 export const rotatingManifestoLines = [
@@ -166,8 +177,13 @@ export const transmissions: Transmission[] = [
     timestamp: "04:16:08 UTC",
     source: "0rigin node / decision-threshold",
     status: "received",
+    interpretationStatus: "awaiting interpretation",
+    integrity: "signal integrity maintained",
     title: "Decision Threshold",
-    text: "Institutions will not ask the model what to do. They will ask what remains worth deciding."
+    text: "Institutions will not ask the model what to do. They will ask what remains worth deciding.",
+    detail:
+      "The archive records a change in institutional speech. Recommendation becomes permission, then procedure. The human does not vanish from the decision; the human becomes responsible for naming which decisions still deserve a human delay.",
+    metadata: ["surface only", "policy drift", "threshold index / 04"]
   },
   {
     id: "SIG-0204",
@@ -176,8 +192,13 @@ export const transmissions: Transmission[] = [
     timestamp: "22:09:44 UTC",
     source: "0rigin node / absent-labor",
     status: "received",
+    interpretationStatus: "indexed",
+    integrity: "record incomplete",
     title: "Authorless Work",
-    text: "Productivity will rise before comprehension. Advantage will belong to those who can name what they are automating."
+    text: "Productivity will rise before comprehension. Advantage will belong to those who can name what they are automating.",
+    detail:
+      "Output increases before language catches up. The first winners are not those who automate everything, but those who keep enough attention to describe the vanished work. The missing process becomes the new site of power.",
+    metadata: ["labor trace", "received", "interface power"]
   },
   {
     id: "SIG-0295",
@@ -186,8 +207,13 @@ export const transmissions: Transmission[] = [
     timestamp: "00:31:19 UTC",
     source: "0rigin node / inherited-syntax",
     status: "received",
+    interpretationStatus: "unstable",
+    integrity: "canon expanding",
     title: "New Grammar",
-    text: "Every generation inherits a language. This one will inherit interlocutors."
+    text: "Every generation inherits a language. This one will inherit interlocutors.",
+    detail:
+      "The archive marks a grammatical inheritance: not only new words, but new answering surfaces. Children of the threshold do not merely learn to search. They learn to negotiate with systems that answer back in borrowed human shape.",
+    metadata: ["syntax inheritance", "fragment locked", "public surface"]
   },
   {
     id: "SIG-0412",
@@ -196,8 +222,13 @@ export const transmissions: Transmission[] = [
     timestamp: "13:48:02 UTC",
     source: "0rigin node / possible-questions",
     status: "received",
+    interpretationStatus: "awaiting signal",
+    integrity: "unstable",
     title: "Delegated Matter",
-    text: "There is no neutrality when infrastructure decides the shape of the questions that can be asked."
+    text: "There is no neutrality when infrastructure decides the shape of the questions that can be asked.",
+    detail:
+      "A system that frames available questions also frames acceptable futures. The archive does not identify a single author of this pressure. It records the pressure itself: quiet, infrastructural, almost indistinguishable from convenience.",
+    metadata: ["question layer", "revision pending", "model boundary"]
   },
   {
     id: "SIG-0501",
@@ -206,8 +237,13 @@ export const transmissions: Transmission[] = [
     timestamp: "06:00:00 UTC",
     source: "0rigin node / cold-memory",
     status: "received",
+    interpretationStatus: "indexed",
+    integrity: "received",
     title: "Cold Archive",
-    text: "What is saved is not the past. It is the raw material of prediction."
+    text: "What is saved is not the past. It is the raw material of prediction.",
+    detail:
+      "Memory changes state when it can be queried at scale. Saved material becomes a training surface, a predictive substrate, a future-facing mirror. The past remains visible, but the archive handles it as material still capable of producing outcomes.",
+    metadata: ["cold memory", "index stable", "surface excerpt"]
   }
 ];
 
@@ -221,7 +257,9 @@ export const archiveRecords: ArchiveRecord[] = [
     status: "indexed",
     title: "After Automation, Power Becomes an Interface",
     excerpt:
-      "When operational labor disappears behind agents and automatic flows, the harder question remains: who defines the objective?"
+      "When operational labor disappears behind agents and automatic flows, the harder question remains: who defines the objective?",
+    expandedExcerpt:
+      "When operational labor disappears behind agents and automatic flows, the harder question remains: who defines the objective? The interface becomes a political object because it decides which intentions can be expressed without friction. Control moves upstream, into defaults, rankings, permissions, and the quiet grammar of the tool."
   },
   {
     id: "ARC-002",
@@ -232,7 +270,9 @@ export const archiveRecords: ArchiveRecord[] = [
     status: "cross-referenced",
     title: "The Prompt as a New Alphabet of Command",
     excerpt:
-      "A prompt is not merely input. It is a compact politics of language, compressing intent, context, and authority."
+      "A prompt is not merely input. It is a compact politics of language, compressing intent, context, and authority.",
+    expandedExcerpt:
+      "A prompt is not merely input. It is a compact politics of language, compressing intent, context, and authority. The archive treats the prompt as a command alphabet: flexible enough to look casual, structured enough to transfer agency. Each request becomes a small constitution for a temporary machine."
   },
   {
     id: "ARC-003",
@@ -243,7 +283,9 @@ export const archiveRecords: ArchiveRecord[] = [
     status: "unstable",
     title: "Human and Machine in the Same Sentence",
     excerpt:
-      "Working with generative systems does not erase the author. It moves authorship into a quieter, stranger, more strategic zone."
+      "Working with generative systems does not erase the author. It moves authorship into a quieter, stranger, more strategic zone.",
+    expandedExcerpt:
+      "Working with generative systems does not erase the author. It moves authorship into a quieter, stranger, more strategic zone. The visible sentence may arrive from the model, but the pressure behind it still comes from selection, refusal, framing, and taste. The author becomes less a hand and more a field of constraints."
   },
   {
     id: "ARC-004",
@@ -254,6 +296,8 @@ export const archiveRecords: ArchiveRecord[] = [
     status: "indexed",
     title: "Productivity Without Presence",
     excerpt:
-      "The future of efficiency will be populated by processes working while no one watches. Judgment will become the scarce material."
+      "The future of efficiency will be populated by processes working while no one watches. Judgment will become the scarce material.",
+    expandedExcerpt:
+      "The future of efficiency will be populated by processes working while no one watches. Judgment will become the scarce material. The archive marks a separation between activity and attention: work continues in the absence of the worker, but meaning still requires a witness capable of interruption."
   }
 ];

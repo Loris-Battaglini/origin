@@ -11,11 +11,11 @@ export function SignalIntakeSection() {
       <div className="mx-auto max-w-3xl text-center">
         <p className="text-xs uppercase text-ice/70">Signal intake</p>
         <h2 className="mt-4 font-serif text-4xl leading-tight text-bone md:text-6xl">
-          Leave a return address at the edge of 0rigin.
+          Leave a return address for the next transmission.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-pewter">
-          Receive future transmissions when the archive surfaces new records.
-          The signal will know where to return.
+          The archive records the channel, then waits. New fragments surface
+          only when the signal changes.
         </p>
 
         <form className="mx-auto mt-9 flex max-w-xl flex-col gap-3 sm:flex-row">
@@ -26,7 +26,7 @@ export function SignalIntakeSection() {
           <input
             id="email"
             type="email"
-            placeholder="address@domain.net"
+            placeholder="return.address@domain.net"
             className="min-h-12 flex-1 rounded-full border border-white/12 bg-white/[0.04] px-5 text-sm text-bone outline-none transition placeholder:text-pewter/55 focus:border-ice/45 focus:ring-2 focus:ring-ice/20"
           />
           <button
