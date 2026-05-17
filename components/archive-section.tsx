@@ -7,25 +7,21 @@ import { ArchiveRail } from "./archive-rail";
 import { SectionHeader } from "./section-header";
 
 export function ArchiveSection() {
-  const [openRecordIds, setOpenRecordIds] = useState<string[]>([
-    archiveRecords[0]?.id ?? ""
-  ]);
+  const [openRecordId, setOpenRecordId] = useState<string | null>(null);
+  const selectedRecord =
+    archiveRecords.find((record) => record.id === openRecordId) ?? null;
 
   function toggleRecord(recordId: string) {
-    setOpenRecordIds((current) =>
-      current.includes(recordId)
-        ? current.filter((id) => id !== recordId)
-        : [...current, recordId]
-    );
+    setOpenRecordId((current) => (current === recordId ? null : recordId));
   }
 
   return (
     <section
       id="archive"
-      className="archive-system-section relative border-b border-white/8 bg-ash px-4 py-24 sm:px-6 md:py-32 lg:px-8"
+      className="archive-system-section relative border-b border-white/8 bg-void px-4 py-20 sm:px-6 md:py-28 lg:px-8"
     >
       <ArchiveRail label="0R / ARCHIVE" marker="records" />
-      <div className="mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Archive Records"
           title="Recovered files from the near threshold."
@@ -33,86 +29,107 @@ export function ArchiveSection() {
           align="left"
         />
 
-        <div className="mx-auto max-w-6xl border-y border-white/10">
+        <div className="grid gap-4 border-y border-white/10 py-4 md:grid-cols-2">
           {archiveRecords.map((record) => {
-            const isOpen = openRecordIds.includes(record.id);
-            const panelId = `archive-record-${record.id.toLowerCase()}`;
+            const isOpen = openRecordId === record.id;
 
             return (
               <article
                 key={record.id}
-                className="record-entry group border-b border-white/10 p-5 last:border-b-0 sm:p-6 md:p-8"
+                className={`record-entry group border border-white/10 bg-black/[0.18] p-4 transition hover:border-veil/35 hover:bg-white/[0.025] md:p-5 ${
+                  isOpen ? "border-veil/45 bg-white/[0.035]" : ""
+                }`}
               >
-                <div className="grid gap-6 md:grid-cols-[190px_minmax(0,1fr)] md:gap-10">
-                  <div className="text-xs uppercase text-pewter">
-                    <div className="flex flex-wrap items-center gap-2 md:block">
-                      <span className="text-veil">{record.id}</span>
-                      <span className="text-white/25 md:hidden">/</span>
-                      <time>{record.date}</time>
-                    </div>
-                    <p className="mt-3 text-ice/70">{record.kind}</p>
-                    <p className="mt-5 text-pewter/65">{record.source}</p>
+                <div className="flex flex-wrap items-center justify-between gap-3 text-xs uppercase text-pewter/70">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-veil">{record.id}</span>
+                    <span className="text-white/25">/</span>
+                    <span>{record.field}</span>
                   </div>
-
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3 text-xs uppercase text-pewter/70">
-                      <span className="h-px w-8 bg-veil/35" />
-                      <span>{record.field}</span>
-                      <span className="text-white/25">/</span>
-                      <span>{record.status}</span>
-                    </div>
-                    <h3 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-bone transition group-hover:text-ice md:text-5xl">
-                      {record.title}
-                    </h3>
-                    <p className="mt-5 max-w-3xl text-base leading-7 text-pewter md:text-lg md:leading-8">
-                      {record.excerpt}
-                    </p>
-                    <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                      <p className="text-xs uppercase tracking-[0.18em] text-pewter/60">
-                        {isOpen ? "record incomplete" : "abstract only"}
-                      </p>
-                      <button
-                        type="button"
-                        aria-expanded={isOpen}
-                        aria-controls={panelId}
-                        onClick={() => toggleRecord(record.id)}
-                        className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-veil/45 hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
-                      >
-                        {isOpen ? "Collapse record" : "Expand record"}
-                      </button>
-                    </div>
-                  </div>
+                  <span>{record.status}</span>
                 </div>
 
-                {isOpen ? (
-                  <div
-                    id={panelId}
-                    className="archive-disclosure-panel mt-7 grid gap-6 border-t border-white/10 pt-7 md:ml-[230px]"
-                  >
-                    <p className="max-w-3xl text-base leading-8 text-bone/84 md:text-lg md:leading-9">
-                      {record.expandedExcerpt}
-                    </p>
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                      <div className="flex flex-wrap gap-3 text-xs uppercase text-pewter/70">
-                        <span>surface only</span>
-                        <span className="text-white/25">/</span>
-                        <span>fragment locked</span>
-                        <span className="text-white/25">/</span>
-                        <span>{record.status}</span>
-                      </div>
-                      <Link
-                        href={`/archive/${record.id.toLowerCase()}`}
-                        className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-veil/45 hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
-                      >
-                        Open record
-                      </Link>
-                    </div>
+                <h3 className="mt-4 font-serif text-2xl leading-tight text-bone transition group-hover:text-ice md:text-3xl">
+                  {record.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-pewter">
+                  {record.excerpt}
+                </p>
+
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="text-xs uppercase text-pewter/60">
+                    <p>{record.kind}</p>
+                    <p className="mt-1">{isOpen ? "record incomplete" : "archive depth locked"}</p>
                   </div>
-                ) : null}
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls="archive-record-reader"
+                    onClick={() => toggleRecord(record.id)}
+                    className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-veil/45 hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
+                  >
+                    {isOpen ? "Collapse record" : "Open record"}
+                  </button>
+                </div>
               </article>
             );
           })}
         </div>
+
+        {selectedRecord ? (
+          <section
+            id="archive-record-reader"
+            className="archive-disclosure-panel mt-5 border border-white/10 bg-black/[0.35] p-5 shadow-altar md:p-7"
+            aria-label={`${selectedRecord.id} reader`}
+          >
+            <div className="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-10">
+              <div className="text-xs uppercase text-pewter/70">
+                <p className="text-veil">{selectedRecord.id}</p>
+                <p className="mt-2">{selectedRecord.date}</p>
+                <p className="mt-5 text-ice/70">{selectedRecord.source}</p>
+                <p className="mt-2">surface only</p>
+              </div>
+
+              <div>
+                <div className="flex flex-wrap gap-3 text-xs uppercase text-pewter/70">
+                  <span>record incomplete</span>
+                  <span className="text-white/25">/</span>
+                  <span>{selectedRecord.status}</span>
+                  <span className="text-white/25">/</span>
+                  <span>fragment locked</span>
+                </div>
+                <p className="mt-5 max-w-4xl text-base leading-8 text-bone/84 md:text-lg md:leading-9">
+                  {selectedRecord.expandedExcerpt}
+                </p>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <button
+                    type="button"
+                    aria-expanded="true"
+                    aria-controls="archive-record-reader"
+                    onClick={() => setOpenRecordId(null)}
+                    className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-veil/45 hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
+                  >
+                    Collapse record
+                  </button>
+                  <Link
+                    href={`/archive/${selectedRecord.id.toLowerCase()}`}
+                    className="inline-flex min-h-11 w-fit items-center justify-center rounded-full border border-white/12 px-5 py-2.5 text-sm text-bone transition hover:border-veil/45 hover:text-veil focus:outline-none focus:ring-2 focus:ring-veil focus:ring-offset-2 focus:ring-offset-void"
+                  >
+                    Open full file
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : (
+          <div
+            id="archive-record-reader"
+            className="mt-5 border border-white/10 bg-black/[0.2] p-4 text-xs uppercase text-pewter/70"
+          >
+            Select a record to expose a controlled excerpt / archive depth
+            locked
+          </div>
+        )}
       </div>
     </section>
   );

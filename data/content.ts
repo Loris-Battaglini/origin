@@ -57,9 +57,9 @@ export const manifestoLines = [
 ];
 
 export const returnProtocolLines = [
-  "0rigin does not publish. It surfaces.",
-  "Fragments may change as the archive receives new signal.",
-  "Return when the signal changes."
+  "The surface is visible. The archive is larger.",
+  "New fragments surface when the signal returns.",
+  "Return later. The surface changes before the canon does."
 ];
 
 export const rotatingManifestoLines = [
